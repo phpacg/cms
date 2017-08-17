@@ -122,7 +122,7 @@ return [
     'template'               => [
         // 模板引擎类型 支持 php think 支持扩展
         'type'         => 'Think',
-        // 模板路径
+        // 模板路径template
         'view_path'    => ROOT_PATH.'template'.DS,
         // 模板后缀
         'view_suffix'  => 'html',
