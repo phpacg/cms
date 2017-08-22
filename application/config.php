@@ -114,6 +114,8 @@ return [
     'request_cache'          => false,
     // 请求缓存有效期
     'request_cache_expire'   => null,
+    // 全局请求缓存排除规则
+    'request_cache_except'   => [],
 
     // +----------------------------------------------------------------------
     // | 模板设置
@@ -122,8 +124,8 @@ return [
     'template'               => [
         // 模板引擎类型 支持 php think 支持扩展
         'type'         => 'Think',
-        // 模板路径template
-        'view_path'    => ROOT_PATH.'template'.DS,
+        // 模板路径
+        'view_path'    => '',
         // 模板后缀
         'view_suffix'  => 'html',
         // 模板文件名分隔符
