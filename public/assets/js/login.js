@@ -12,10 +12,19 @@ layui.config({
 			$(".video-player").css({"width":$(window).width(),"height":"auto","left":-($(".video-player").width()-$(window).width())/2});
 		}
 	}).resize();
-	
+
 	//登录按钮事件
 	form.on("submit(login)",function(data){
-		window.location.href = "../../index.html";
-		return false;
+		$.ajax({
+			type:'post',
+			url:'',
+			data:{
+			username:$('#user').val(),password:$('#pwd').val(),code:$('#code').val()
+			},
+			dataType:'json',
+			success:function (data) {
+				console.log(data);
+            },
+		});
 	})
 })
