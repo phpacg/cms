@@ -8,75 +8,52 @@
 
 namespace app\admin\controller;
 
-use app\common\controller\Backend;
+//use app\common\helper\VerifyHelper;(验证码类生成图片的太卡，改用tp5官方)
 use think\Validate;
 
-class Index extends Backend
+class Index extends Base
 {
-    protected $noNeedLogin = ['login'];
-    protected $noNeedRight = ['index', 'logout'];
-    protected $layout = '';
 
-    public function _initialize()
-    {
-        parent::_initialize();
-    }
 
     public function index(){
         return $this->fetch();
     }
 
     public function login(){
-        $url = $this->request->get('url', 'index/index');
-        if ($this->auth->isLogin())
-        {
-            $this->error(__("You've logged in, do not login again"), $url);
-        }
-        if ($this->request->isPost())
-        {
-            $username = $this->request->post('username');
-            $password = $this->request->post('password');
-            $keeplogin = $this->request->post('keeplogin');
-            $token = $this->request->post('__token__');
-            $rule = [
-                'username'  => 'require|length:3,30',
-                'password'  => 'require|length:3,30',
-                '__token__' => 'token',
-            ];
-            $data = [
-                'username'  => $username,
-                'password'  => $password,
-                '__token__' => $token,
-            ];
-            $validate = new Validate($rule);
-            $result = $validate->check($data);
-            if (!$result)
-            {
-                $this->error($validate->getError(), $url, ['token' => $this->request->token()]);
-            }
-            \app\admin\model\AdminLog::setTitle(__('Login'));
-            $result = $this->auth->login($username, $password, $keeplogin ? 86400 : 0);
-            if ($result === true)
-            {
-                $this->success(__('Login successful'), $url, ['url' => $url, 'id' => $this->auth->id, 'username' => $username, 'avatar' => $this->auth->avatar]);
-            }
-            else
-            {
-                $this->error(__('Username or password is incorrect'), $url, ['token' => $this->request->token()]);
-            }
-        }
+//
+//        $username = $this->request->post('username');
+//        $password = $this->request->post('password');
+//        $code =$this->request->post('code');
+//        //验证码验证
+//        if(!captcha_check($code)){
+//            $this->error(__('验证码错误'));
+//        }
+//
+//        $rule = [
+//            'username'  => 'require|length:3,30',
+//            'password'  => 'require|length:3,30',
+//        ];
+//        $data = [
+//            'username'  => $username,
+//            'password'  => $password,
+//        ];
+//
+//        $validate = new Validate($rule);
+//        $result = $validate->check($data);
 
-        // 根据客户端的cookie,判断是否可以自动登录
-        if ($this->auth->autologin())
-        {
-            $this->redirect($url);
-        }
 
         return $this->fetch('login'); 
    	}
-    
+
+   	//退出登录
     public function logout(){
-        $this->auth->logout();
-        $this->success(__('Logout successful'), 'index/login');
+        $this->success(__('退出成功！'), 'index/login');
     }
+
+    //验证码 composer require tp5/catpcha(生成图片耗时太久放弃使用)
+//    public function verify()
+//    {
+//        VerifyHelper::verify();
+//    }
+
 }
