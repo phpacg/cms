@@ -29,5 +29,18 @@ class Manager extends Base
          echo json_encode($res);
     }
 
+    public function delManager(){
+        $id=input('post.id');
+        if (request()->isPost()) {
+            $res = db('admin')->where('id',$id)->delete();
+            if($res!=0){
+                return 1;
+            }else{
+                return false;
+            }
+        }
+
+    }
+
 
 }
