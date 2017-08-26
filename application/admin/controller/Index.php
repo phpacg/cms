@@ -7,53 +7,50 @@
  */
 
 namespace app\admin\controller;
-
-//use app\common\helper\VerifyHelper;(验证码类生成图片的太卡，改用tp5官方)
+use think\Session;
 use think\Validate;
+use app\admin\model\Admin;
 
 class Index extends Base
 {
 
-
     public function index(){
+        if(!Session::has('username')){
+            $this->error('您未登录，请登录','index/login');
+        }
         return $this->fetch();
     }
 
     public function login(){
-//
-//        $username = $this->request->post('username');
-//        $password = $this->request->post('password');
-//        $code =$this->request->post('code');
-//        //验证码验证
-//        if(!captcha_check($code)){
-//            $this->error(__('验证码错误'));
-//        }
-//
-//        $rule = [
-//            'username'  => 'require|length:3,30',
-//            'password'  => 'require|length:3,30',
-//        ];
-//        $data = [
-//            'username'  => $username,
-//            'password'  => $password,
-//        ];
-//
-//        $validate = new Validate($rule);
-//        $result = $validate->check($data);
+        if(request()->isPost()) {
+            $username = $this->request->post('username');
+            $password = $this->request->post('password');
+            $code = $this->request->post('code');
+            if(!captcha_check($code)){
+                $this->error('验证码错误！');
+            };
+            $t=new Admin;
+            $res=$t->isPassword($username,$password);
+            if(!$res){
+                $this->error('用户名或密码错误！');
+            }else{
+                session('username',$username);
+                $this->success('登录成功！');
+            }
+        }
 
-
-        return $this->fetch('login'); 
+        if (Session::has('username')) {
+            $this->success('您已登录', 'index/index');
+        }
+        return $this->fetch('login');
    	}
 
    	//退出登录
     public function logout(){
-        $this->success(__('退出成功！'), 'index/login');
+        session(null);
+        session('username', null);
+        $this->success('退出成功！', 'index/login');
     }
 
-    //验证码 composer require tp5/catpcha(生成图片耗时太久放弃使用)
-//    public function verify()
-//    {
-//        VerifyHelper::verify();
-//    }
 
 }

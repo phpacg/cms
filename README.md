@@ -10,6 +10,7 @@ onethink/tpadmin/thinkcmf/fastadmin/dedecms
 9月中旬完成cms相应功能，及bug处理
 看情况嵌入一套商城功能模块，和小程序相应接口学习
 
+8.27管理员登录bug修复，日志列表<br>
 8.25管理员<br>
 8.24验证码完成<br>
 8.24登录流程完善<br>

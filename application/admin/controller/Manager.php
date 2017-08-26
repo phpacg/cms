@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 
+
 class Manager extends Base
 {
     public function managerList(){
@@ -42,5 +43,13 @@ class Manager extends Base
 
     }
 
+    public function adminLog(){
+        return $this->fetch();
+    }
+
+    public function viewAdminlog(){
+        $res=db('admin_log')->select();
+        echo json_encode($res);
+    }
 
 }

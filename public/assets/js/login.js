@@ -17,14 +17,20 @@ layui.config({
 	form.on("submit(login)",function(data){
 		$.ajax({
 			type:'post',
-			url:'',
+			url:'login',
 			data:{
 			username:$('#user').val(),password:$('#pwd').val(),code:$('#code').val()
 			},
 			dataType:'json',
 			success:function (data) {
-				console.log(data);
+				if(data['code']==1){
+                    top.layer.msg('登录成功！');
+                    window.location.href='index';
+				}else{
+                    top.layer.msg(data['msg']);
+				};
             },
 		});
+		return false;
 	})
 })

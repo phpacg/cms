@@ -28,9 +28,7 @@
 		    </div>
 		    <div class="layui-form-item form_code">
 				<input class="layui-input" id="code" name="code" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">
-				<div class="code"><img src="{:captcha_src()}" onclick="this.src='{:captcha_src()}?'+Math.random()" class="verifyimg" width="116" height="36"></div>
-				<!--<div class="code"><img src="__PIPATH__admin/index/verify" class="verifyimg" width="116" height="36"></div>-->
-
+				<div class="code"><img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?'+Math.random()" class="verifyimg" width="116" height="36"></div>
 		    </div>
 			<button class="layui-btn login_btn" lay-submit="" lay-filter="login">登录</button>
 		</form>
@@ -39,18 +37,5 @@
 	<script type="text/javascript" src="/public/assets/layui/layui.js"></script>
 	<script type="text/javascript" src="/public/assets/js/login.js"></script>
 
-	<!--<script>-->
-        <!--$(function(){-->
-            <!--// 刷新验证码-->
-            <!--var verifyimg = $(".verifyimg").attr("src");-->
-            <!--$(".verifyimg").click(function(){-->
-                <!--if( verifyimg.indexOf('?')>0){-->
-                    <!--$(".verifyimg").attr("src", verifyimg+'&random='+Math.random());-->
-                <!--}else{-->
-                    <!--$(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());-->
-                <!--}-->
-            <!--});-->
-        <!--})-->
-	<!--</script>-->
 </body>
 </html>

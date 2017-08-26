@@ -2,31 +2,6 @@
 
 // 公共助手函数
 
-if (!function_exists('__'))
-{
-
-    /**
-     * 获取语言变量值
-     * @param string    $name 语言变量名
-     * @param array     $vars 动态变量值
-     * @param string    $lang 语言
-     * @return mixed
-     */
-    function __($name, $vars = [], $lang = '')
-    {
-        if (is_numeric($name))
-            return $name;
-        if (!is_array($vars))
-        {
-            $vars = func_get_args();
-            array_shift($vars);
-            $lang = '';
-        }
-        return think\Lang::get($name, $vars, $lang);
-    }
-
-}
-
 if (!function_exists('format_bytes'))
 {
 
@@ -63,21 +38,7 @@ if (!function_exists('datetime'))
 
 }
 
-if (!function_exists('human_date'))
-{
 
-    /**
-     * 获取语义化时间
-     * @param int $time 时间
-     * @param int $local 本地时间
-     * @return string
-     */
-    function human_date($time, $local = null)
-    {
-        return \fast\Date::human($time, $local);
-    }
-
-}
 
 if (!function_exists('cdnurl'))
 {
@@ -163,38 +124,3 @@ if (!function_exists('rmdirs'))
 
 }
 
-if (!function_exists('copydirs'))
-{
-
-    /**
-     * 复制文件夹
-     * @param string $source 源文件夹
-     * @param string $dest 目标文件夹
-     */
-    function copydirs($source, $dest)
-    {
-        if (!is_dir($dest))
-        {
-            mkdir($dest, 0755);
-        }
-        foreach (
-        $iterator = new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator($source, RecursiveDirectoryIterator::SKIP_DOTS), RecursiveIteratorIterator::SELF_FIRST) as $item
-        )
-        {
-            if ($item->isDir())
-            {
-                $sontDir = $dest . DS . $iterator->getSubPathName();
-                if (!is_dir($sontDir))
-                {
-                    mkdir($sontDir);
-                }
-            }
-            else
-            {
-                copy($item, $dest . DS . $iterator->getSubPathName());
-            }
-        }
-    }
-
-}
