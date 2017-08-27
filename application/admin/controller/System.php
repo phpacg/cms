@@ -20,6 +20,17 @@ class System extends Base
         return $this->fetch('systemParameter');
     }
 
+    //取系统配置项
+    public function getsysConfig(){
+        $res=db('config')->field(['name','value'])->select();
+        $data = '{';
+        foreach ($res as $v){
+          $data = $data.'"'.$v['name'].'":"'.$v['value'].'",';
+        }
+        return $data.'"hello":"world"'.'}';
+//        return json_encode($res);
+    }
+
     //友情链接列表
     public function linksList(){
         return $this->fetch('linksList');

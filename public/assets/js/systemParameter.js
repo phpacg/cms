@@ -37,29 +37,34 @@ layui.config({
  		fillData(data);
  	}else{
  		$.ajax({
-			url : "/public/assets/json/systemParameter.json",
+			url : "getsysConfig",
 			type : "get",
 			dataType : "json",
 			success : function(data){
-				fillData(data);
+				console.log(data);
+                var obj = JSON.parse(data);
+				fillData(obj);
 			}
 		})
  	}
 
  	//填充数据方法
  	function fillData(data){
- 		$(".version").val(data.version);      //当前版本
-		$(".author").val(data.author);        //开发作者
-		$(".homePage").val(data.homePage);    //网站首页
-		$(".server").val(data.server);        //服务器环境
-		$(".dataBase").val(data.dataBase);    //数据库版本
-		$(".maxUpload").val(data.maxUpload);  //最大上传限制
-		$(".userRights").val(data.userRights);//当前用户权限
-		$(".cmsName").val(data.cmsName);      //模版名称
-		$(".description").val(data.description);//站点描述
-		$(".powerby").val(data.powerby);      //版权信息
-		$(".record").val(data.record);      //网站备案号
-		$(".keywords").val(data.keywords);    //默认关键字
- 	}
+ 		$(".version").val(data.version);
+		$(".author").val(data.author);
+		$(".cdnurl").val(data.cdnurl);
+		$(".beian").val(data.beian);
+		$(".timezone").val(data.timezone);
+		$(".mail_type").val(data.mail_type);
+		$(".mail_smtp_host").val(data.mail_smtp_host);
+		$(".cmsName").val(data.cmsName);
+		$(".mail_smtp_port").val(data.mail_smtp_port);
+		$(".mail_smtp_user").val(data.mail_smtp_user);
+		$(".mail_smtp_pass").val(data.mail_smtp_pass);
+        $(".mail_verify_type").val(data.mail_verify_type);
+        $(".mail_from").val(data.mail_from);
+
+
+    }
  	
 })

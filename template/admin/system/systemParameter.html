@@ -16,91 +16,173 @@
 	</style>
 </head>
 <body class="childrenBody">
-	<form class="layui-form">
-		<table class="layui-table">
-			<colgroup>
-				<col width="20%">
-				<col width="50%">
-				<col>
-		    </colgroup>
-		    <thead>
-		    	<tr>
-		    		<th>参数说明</th>
-		    		<th>参数值</th>
-		    		<th>变量名</th>
-		    	</tr>
-		    </thead>
-		    <tbody>
-		    	<tr>
-		    		<td>模版名称</td>
-		    		<td><input type="text" class="layui-input cmsName" lay-verify="required" placeholder="请输入模版名称"></td>
-		    		<td>cmsName</td>
-		    	</tr>
-		    	<tr>
-		    		<td>当前版本</td>
-		    		<td><input type="text" class="layui-input version" placeholder="请输入当前模版版本"></td>
-		    		<td>version</td>
-		    	</tr>
-		    	<tr>
-		    		<td>开发作者</td>
-		    		<td><input type="text" class="layui-input author" placeholder="请输入开发作者"></td>
-		    		<td>author</td>
-		    	</tr>
-		    	<tr>
-		    		<td>网站首页</td>
-		    		<td><input type="text" class="layui-input homePage" placeholder="请输入网站首页"></td>
-		    		<td>homePage</td>
-		    	</tr>
-		    	<tr>
-		    		<td>服务器环境</td>
-		    		<td><input type="text" class="layui-input server" placeholder="请输入服务器环境"></td>
-		    		<td>server</td>
-		    	</tr>
-		    	<tr>
-		    		<td>数据库版本</td>
-		    		<td><input type="text" class="layui-input dataBase" placeholder="请输入数据库版本"></td>
-		    		<td>dataBase</td>
-		    	</tr>
-		    	<tr>
-		    		<td>最大上传限制</td>
-		    		<td><input type="text" class="layui-input maxUpload" placeholder="请输入最大上传限制"></td>
-		    		<td>maxUpload</td>
-		    	</tr>
-		    	<tr>
-		    		<td>用户权限</td>
-		    		<td><input type="text" class="layui-input userRights" placeholder="请输入当前用户权限"></td>
-		    		<td>userRights</td>
-		    	</tr>
-		    	<tr>
-		    		<td>默认关键字</td>
-		    		<td><input type="text" class="layui-input keywords" placeholder="请输入默认关键字"></td>
-		    		<td>keywords</td>
-		    	</tr>
-		    	<tr>
-		    		<td>版权信息</td>
-		    		<td><input type="text" class="layui-input powerby" placeholder="请输入网站版权信息"></td>
-		    		<td>powerby</td>
-		    	</tr>
-		    	<tr>
-		    		<td>网站描述</td>
-		    		<td><textarea placeholder="请输入网站描述" class="layui-textarea description"></textarea></td>
-		    		<td>description</td>
-		    	</tr>
-		    	<tr>
-		    		<td>网站备案号</td>
-		    		<td><input type="text" class="layui-input record" placeholder="请输入网站备案号"></td>
-		    		<td>record</td>
-		    	</tr>
-		    </tbody>
-		</table>
-		<div class="layui-form-item" style="text-align: right;">
-			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit="" lay-filter="systemParameter">立即提交</button>
-				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-		    </div>
+
+<div class="layui-tab" lay-filter="test">
+	<ul class="layui-tab-title">
+		<li class="layui-this" lay-id="11">网站设置</li>
+		<li lay-id="22" class="">邮件配置</li>
+		<li lay-id="33" class="">公众号配置</li>
+		<li lay-id="44">路由设置</li>
+		<li lay-id="55">订单管理</li>
+	</ul>
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form">
+				<table class="layui-table">
+					<colgroup>
+						<col width="20%">
+						<col width="50%">
+						<col>
+					</colgroup>
+					<thead>
+					<tr>
+						<th>参数说明</th>
+						<th>参数值</th>
+						<th>变量名</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>站点名称</td>
+						<td><input type="text" class="layui-input cmsName" lay-verify="required" placeholder="请输入站点名称"></td>
+						<td>name</td>
+					</tr>
+					<tr>
+						<td>版本号</td>
+						<td><input type="text" class="layui-input version" placeholder="请输入版本号"></td>
+						<td>beian</td>
+					</tr>
+					<tr>
+						<td>CDN地址</td>
+						<td><input type="text" class="layui-input cdnurl" placeholder="请输入CDN地址"></td>
+						<td>cdnurl</td>
+					</tr>
+					<tr>
+						<td>备案号</td>
+						<td><input type="text" class="layui-input beian" placeholder="请输入备案号"></td>
+						<td>version</td>
+					</tr>
+					<tr>
+						<td>时区</td>
+						<td><input type="text" class="layui-input timezone" placeholder="请输入时区"></td>
+						<td>timezone</td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="layui-form-item" style="text-align: right;">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit="" lay-filter="systemParameter">立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
 		</div>
-	</form>
+		<div class="layui-tab-item">
+			<form class="layui-form">
+			<table class="layui-table">
+				<colgroup>
+					<col width="20%">
+					<col width="50%">
+					<col>
+				</colgroup>
+				<thead>
+				<tr>
+					<th>参数说明</th>
+					<th>参数值</th>
+					<th>变量名</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>SMTP[服务器]</td>
+					<td><input type="text" class="layui-input mail_smtp_hos" lay-verify="required" placeholder="请输入SMTP[服务器]"></td>
+					<td>mail_smtp_host</td>
+				</tr>
+				<tr>
+					<td>SMTP[端口]</td>
+					<td><input type="text" class="layui-input mail_smtp_port" placeholder="请输入SMTP[端口]"></td>
+					<td>mail_smtp_port</td>
+				</tr>
+				<tr>
+					<td>SMTP[用户名]</td>
+					<td><input type="text" class="layui-input mail_smtp_user" placeholder="请输入SMTP[用户名]"></td>
+					<td>mail_smtp_user</td>
+				</tr>
+				<tr>
+					<td>SMTP[密码]</td>
+					<td><input type="text" class="layui-input mail_smtp_pass" placeholder="请输入SMTP[密码]"></td>
+					<td>mail_smtp_pass</td>
+				</tr>
+				<tr>
+					<td>SMTP验证方式</td>
+					<td><input type="text" class="layui-input server" placeholder="请输入SMTP验证方式"></td>
+					<td>mail_verify_type</td>
+				</tr>
+				<tr>
+					<td>发件人邮箱</td>
+					<td><input type="text" class="layui-input mail_from" placeholder="请输入发件人邮箱"></td>
+					<td>mail_from</td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="layui-form-item" style="text-align: right;">
+				<div class="layui-input-block">
+					<button class="layui-btn" lay-submit="" lay-filter="systemParameter">立即提交</button>
+					<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				</div>
+			</div>
+		</form>
+		</div>
+		<div class="layui-tab-item">内容3</div>
+		<div class="layui-tab-item">内容4</div>
+		<div class="layui-tab-item">内容5</div>
+	</div>
+</div>
+
 	<script type="text/javascript" src="/public/assets/layui/layui.js"></script>
 	<script type="text/javascript" src="/public/assets/js/systemParameter.js"></script>
+<script>
+    layui.use('element', function(){
+        var $ = layui.jquery
+            ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+        //触发事件
+        var active = {
+            tabAdd: function(){
+                //新增一个Tab项
+                element.tabAdd('demo', {
+                    title: '新选项'+ (Math.random()*1000|0) //用于演示
+                    ,content: '内容'+ (Math.random()*1000|0)
+                    ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                })
+            }
+            ,tabDelete: function(othis){
+                //删除指定Tab项
+                element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                othis.addClass('layui-btn-disabled');
+            }
+            ,tabChange: function(){
+                //切换到指定Tab项
+                element.tabChange('demo', '22'); //切换到：用户管理
+            }
+        };
+
+        $('.site-demo-active').on('click', function(){
+            var othis = $(this), type = othis.data('type');
+            active[type] ? active[type].call(this, othis) : '';
+        });
+
+        //Hash地址的定位
+        var layid = location.hash.replace(/^#test=/, '');
+        element.tabChange('test', layid);
+
+        element.on('tab(test)', function(elem){
+            location.hash = 'test='+ $(this).attr('lay-id');
+        });
+
+    });
+</script>
 </body>
 </html>

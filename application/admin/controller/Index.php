@@ -7,11 +7,11 @@
  */
 
 namespace app\admin\controller;
+use think\Controller;
 use think\Session;
-use think\Validate;
 use app\admin\model\Admin;
 
-class Index extends Base
+class Index extends Controller
 {
 
     public function index(){
@@ -49,6 +49,7 @@ class Index extends Base
     public function logout(){
         session(null);
         session('username', null);
+        session('id',null);
         $this->success('退出成功！', 'index/login');
     }
 

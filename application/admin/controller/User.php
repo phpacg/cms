@@ -11,10 +11,7 @@ namespace app\admin\controller;
 
 class User extends Base
 {
-    //修改资料
-    public function changePwd(){
-        return $this->fetch('changePwd');
-    }
+
     //所有用户列表
     public function allUsers(){
         return $this->fetch('allUsers');
@@ -23,8 +20,5 @@ class User extends Base
     public function addUser(){
         return $this->fetch('addUser');
     }
-    //用户信息
-    public function userInfo(){
-        return $this->fetch('userInfo');
-    }
+
 }

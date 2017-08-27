@@ -10,8 +10,15 @@ namespace app\admin\controller;
 
 
 use think\Controller;
+use think\Session;
 
 class Base extends Controller
 {
+    public function _initialize()
+    {
+        if (!Session::has('id')||!Session::has('username')){
+            $this->error('您未登录，请登录','index/login');
+        }
+    }
 
 }
