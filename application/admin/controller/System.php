@@ -40,4 +40,9 @@ class System extends Base
     public function linksAdd(){
         return $this->fetch('linksAdd');
     }
+
+    //数据库管理
+    public function viewData(){
+        echo '数据库管理正在开发页面！';
+    }
 }

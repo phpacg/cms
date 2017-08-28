@@ -5,11 +5,13 @@ namespace app\admin\controller;
 
 class Manager extends Base
 {
+    //管理员列表
     public function managerList(){
 
         return $this->fetch('managerList');
     }
 
+    //添加管理员
     public function addManager(){
         if (request()->isPost()){
             $data=input('post.');
@@ -24,11 +26,13 @@ class Manager extends Base
         return $this->fetch('addManager');
     }
 
+    //管理员json
     public function viewManager(){
         $res=db('admin')->field(['id','username','email','nickname','content','status','createtime'])->select();
          echo json_encode($res);
     }
 
+    //删除管理员
     public function delManager(){
         $id=input('post.id');
         if (request()->isPost()) {
@@ -95,6 +99,21 @@ class Manager extends Base
             }
         }
         return $this->fetch('managerInfo');
+    }
+
+    //用户组
+    public function adminGroup(){
+        return $this->fetch('adminGroup');
+    }
+    //用户组数据
+    public function viewadminGroup(){
+        $res=db('auth_group')->field(['id','pid','name','status'])->select();
+        return json_encode($res);
+    }
+    //添加用户组
+    public function groupAdd(){
+
+        return $this->fetch('groupAdd');
     }
 
 }

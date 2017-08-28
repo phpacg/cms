@@ -9,9 +9,14 @@
 namespace app\admin\controller;
 
 
+use app\admin\model\Category;
+
 class Cat extends Base
 {
     public function catList(){
-        return $this->fetch('catList');
+        $cat=new Category();
+        $catres=$cat->catetree();
+        $this->assign('catres',$catres);
+        return view();
     }
 }
