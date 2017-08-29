@@ -8,7 +8,8 @@ layui.config({
 
 	//加载页面数据
 	var newsData = '';
-	$.get("/public/assets/json/newsList.json", function(data){
+	$.get("newsJson", function(data){
+		data=JSON.parse(data);
 		var newArray = [];
 		//单击首页“待审核文章”加载的信息
 		if($(".top_tab li.layui-this cite",parent.document).text() == "待审核文章"){

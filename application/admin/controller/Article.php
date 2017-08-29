@@ -20,4 +20,11 @@ class Article extends Base
     public function newsAdd(){
         return $this->fetch('newsAdd');
     }
+
+    //文章json
+    public function newsJson(){
+        $news=db('article')->field(['newsId','newsName','newsAuthor','newsLook','isShow','newsTime'])->select();
+        $newsjson=json_encode($news);
+        return $newsjson;
+    }
 }

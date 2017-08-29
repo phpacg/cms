@@ -32,4 +32,20 @@ class Category extends Model
         return $arr;
     }
 
+    public function getchildid($cateid){
+        $catres=$this->select();
+        return $this->_getchildrenid($catres,$cateid);
+    }
+
+    public function _getchildrenid(){
+        static $arr=array();
+        foreach ($cateres as $k=>$v){
+            if ($v['pid']==$cateid){
+                $arr[]=$v['id'];
+                $this->_getchildrenid($cateres,$v['id']);
+            }
+        }
+        return $arr;
+    }
+
 }

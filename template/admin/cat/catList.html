@@ -15,29 +15,26 @@
 <body class="childrenBody">
 	<blockquote class="layui-elem-quote news_search">
 		<div class="layui-inline">
-			<a class="layui-btn layui-btn-normal newsAdd_btn">添加栏目</a>
-		</div>
-		<div class="layui-inline">
-			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+			<a class="layui-btn layui-btn-normal catAdd_btn">添加栏目</a>
 		</div>
 	</blockquote>
 	<div class="layui-form news_list">
 	  	<table class="layui-table">
 		    <colgroup>
-				<col width="5%">
-				<col width="5%">
-				<col width="15%">
-				<clo width="5%">
-				<col width="15%">
+				<col width="3%">
 				<col width="15%">
 				<col width="20%">
+				<col width="35%">
+				<col width="9%">
+				<col width="9%">
+				<col width="9%">
 		    </colgroup>
 		    <thead>
 				<tr>
-					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
 					<th>栏目id</th>
 					<th>栏目标题</th>
-					<th>栏目父id</th>
+					<th>栏目关键词</th>
+					<th>栏目描述</th>
 					<th>栏目类型</th>
 					<th>是否展示</th>
 					<th>操作</th>
@@ -45,13 +42,14 @@
 		    </thead>
 		    <tbody class="news_content">
 			{volist name="catres" id="v"}
-			<tr><td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td>
+			<tr>
 				<td>{$v.id}</td>
-				<td style="text-align: left"><?php echo str_repeat('--',$v['level'])?>{$v.name}</td>
-				<td>{$v.pid}</td>
+				<td style="text-align: left">{if condition="$v['level'] neq 0"}|{/if}<?php echo str_repeat('——',$v['level'])?>{$v.name}</td>
+				<td>{$v.keywords}</td>
+				<td>{$v.description}</td>
 				<td>{$v.type}</td>
-				<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"><div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>否</em><i></i></div></td>
-				<td><a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a><a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon"></i> 进入栏目</a><a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="1"><i class="layui-icon"></i> 删除</a></td>
+				<td><input type="checkbox" {if condition="$v['status'] neq 1"}checked{/if} name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow" datapid='{$v.id}'><div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>否</em><i></i></div></td>
+				<td><a class="layui-btn layui-btn-mini news_edit" data-id="{$v.id}"><i class="iconfont icon-edit"></i> 编辑</a><a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="{$v.id}"><i class="layui-icon"></i> 删除</a></td>
 			</tr>
 			{/volist}
 			</tbody>
