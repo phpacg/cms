@@ -44,10 +44,11 @@ layui.config({
 			var index = layer.msg('查询中，请稍候',{icon: 16,time:false,shade:0.8});
             setTimeout(function(){
             	$.ajax({
-					url : "/public/assets/json/newsList.json",
+					url : "newsJson",
 					type : "get",
 					dataType : "json",
 					success : function(data){
+						data=JSON.parse(data);
 						if(window.sessionStorage.getItem("addNews")){
 							var addNews = window.sessionStorage.getItem("addNews");
 							newsData = JSON.parse(addNews).concat(data);

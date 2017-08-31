@@ -70,7 +70,7 @@ layui.config({
             type : 2,
             content : "adminRule.html",
             success : function(layero, index){
-                setTimeout(function(){view_admin_log
+                setTimeout(function(){
                     layui.layer.tips('点击此处返回会员列表', '.layui-layer-setwin .layui-layer-close', {
                         tips: 3
                     });

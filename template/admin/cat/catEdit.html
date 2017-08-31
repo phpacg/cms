@@ -29,7 +29,7 @@
 			<label class="layui-form-label">上级栏目</label>
 			<div class="layui-input-block">
 				<select name="interest" class="pid">
-					<option value="0" selected="">顶级栏目</option>
+					<option value="0" selected=""> 顶级栏目</option>
 					{volist name='catres' id='v'}
 					<option value="{$v.id}">{if condition="$v['level'] neq 0"}|{/if}<?php echo str_repeat('——',$v['level'])?>{$v.name}</option>
 					{/volist}

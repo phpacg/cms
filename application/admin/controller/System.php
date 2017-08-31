@@ -13,6 +13,7 @@ class System extends Base
 {
     //后台主页
     public function main(){
+
         return $this->fetch('main');
     }
     //系统设置页面
@@ -39,6 +40,12 @@ class System extends Base
     //友情链接添加页面
     public function linksAdd(){
         return $this->fetch('linksAdd');
+    }
+
+    //友情链接数据
+    public function linksjson(){
+        $res=db('flink')->select();
+        return json_encode($res);
     }
 
     //数据库管理

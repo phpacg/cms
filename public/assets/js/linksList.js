@@ -9,11 +9,11 @@ layui.config({
 	//加载页面数据
 	var linksData = '';
 	$.ajax({
-		url : "/public/assets/json/linksList.json",
+		url : "linksjson",
 		type : "get",
 		dataType : "json",
 		success : function(data){
-			linksData = data;
+			linksData = JSON.parse(data);
 			if(window.sessionStorage.getItem("addLinks")){
 				var addLinks = window.sessionStorage.getItem("addLinks");
 				linksData = JSON.parse(addLinks).concat(linksData);

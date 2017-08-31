@@ -9,3 +9,38 @@
 /*表格中的操作按钮样式问题*/
 .layui-table .layui-btn, .layui-table .layui-btn+.layui-btn{ margin:2px 5px; }
 .layui-inline{ margin:5px 5px 5px 0; }
+.layui-upload-drag {
+    position: relative;
+    padding: 30px;
+    border: 1px dashed #e2e2e2;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+}
+.upfile {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.upfile input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.upfile:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
